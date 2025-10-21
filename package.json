@@ -2,6 +2,7 @@
   "name": "ai-english-conversation-practice",
   "version": "1.0.0",
   "description": "A web-based English conversation practice app using speech recognition and AI",
+  "type": "module",
   "main": "index.html",
   "scripts": {
     "dev": "vercel dev",
@@ -20,5 +21,8 @@
   "license": "MIT",
   "devDependencies": {
     "vercel": "^33.0.0"
+  },
+  "dependencies": {
+    "@vercel/node": "^3.0.0"
   }
 }
