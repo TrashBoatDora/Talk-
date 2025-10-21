@@ -26,8 +26,8 @@ export default async function handler(req, res) {
             return res.status(500).json({ error: 'Server configuration error' });
         }
 
-        // Construct the Gemini API URL
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+        // Construct the Gemini API URL (使用最新的 gemini-2.0-flash 模型)
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`;
 
         // Construct request body for Gemini API
         const requestBody = {
@@ -46,7 +46,8 @@ export default async function handler(req, res) {
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-goog-api-key': GEMINI_API_KEY
             },
             body: JSON.stringify(requestBody)
         });
